@@ -38,9 +38,10 @@ def get_data(settings, path):
     print('Adding features')
 
     df['date'] = pd.to_datetime(df['date'])
-    data_stamp = time_features(pd.to_datetime(df['date'].values), freq='1h') # 创建有关时间衍生特征
-    data_stamp = data_stamp.transpose(1,0)
-    df = pd.concat([df, pd.DataFrame(data_stamp)], axis=1)
+    if settings['checkpoints'] != './checkpoints/lstm/':
+        data_stamp = time_features(pd.to_datetime(df['date'].values), freq='1h') # 创建有关时间衍生特征
+        data_stamp = data_stamp.transpose(1,0)
+        df = pd.concat([df, pd.DataFrame(data_stamp)], axis=1)
     df = df.drop(columns=['date'])
     
     print("data cols", df.columns)

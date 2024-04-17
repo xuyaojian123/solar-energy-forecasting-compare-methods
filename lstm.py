@@ -121,14 +121,13 @@ def prep_env():
     settings = {
         'checkpoints': "./checkpoints/lstm/",
         'path': "./data/solar_enery.csv",
-        'remove_features': ['Day', 'Dir','hour_cos'],
         'rnn_layer': 1,
         "input_len": 50,
         "output_len": 150,
         'batch_size': 32,
-        'in_var': 8,
+        'in_var': 4,
         "dropout": 0.05,
-        'epoch_num': 200,
+        'epoch_num': 100,
         'learning_rate': 0.001,
         "horizons": [15, 45, 90, 150],
     }
@@ -143,6 +142,7 @@ if __name__ == "__main__":
         settings["output_len"] = horizon
 
         train_features, train_targets = get_data(settings, "./data/solar_enery.csv")
+
         train_dataset = TrainDataset(train_features, train_targets, settings)
         train_dataloader = DataLoader(train_dataset, batch_size=settings['batch_size'], shuffle=True)
 
