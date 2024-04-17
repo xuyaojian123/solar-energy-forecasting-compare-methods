@@ -156,7 +156,7 @@ def prep_env():
         'batch_size': 32,
         'in_var': 8,
         "dropout": 0.05,
-        'epoch_num': 200,
+        'epoch_num': 100,
         'learning_rate': 0.001,
         "horizons": [15, 45, 90, 150],
     }
