@@ -1,3 +1,5 @@
+![](/plot.png)
+
 ### Requirements
 
 ```bash
