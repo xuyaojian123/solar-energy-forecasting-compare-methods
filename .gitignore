@@ -10,7 +10,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-checkpoints/
+.pt
 .Python
 build/
 develop-eggs/
